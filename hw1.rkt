@@ -8,7 +8,7 @@
 
 ;; 2.1 Space Invaders
 
-(define SCENE-DIM 500)
+(define SCENE-DIM 700)
 
 ;; Ship Class
 ;; A Ship is a (new ship% Number)
@@ -31,8 +31,8 @@
   ;; draw : -> Image
   ;; Draws the Ship.
   (define (draw)
-    (overlay (circle 8 "solid" "blue")
-             (triangle 40 "solid" "green"))))
+    (overlay (circle 8 "solid" "red")
+             (triangle 40 "solid" "yellow"))))
 
 ;; Bullet Class
 ;; A Bullet is a (new bullet% Number Number)
@@ -45,7 +45,7 @@
   ;; draw : -> Image
   ;; Draws the Bullet.
   (define (draw)
-    (line 0 5 "black"))
+    (line 0 10 "black"))
   ;; off-screen? : -> Boolean
   ;; Is the Bullet off the screen?
   (define (off-screen?)
@@ -76,7 +76,7 @@
   (define (draw)
     (overlay/offset (circle 8 "solid" "red")
                     0 8
-                    (ellipse 40 20 "solid" "red")))
+                    (circle 40 20 "solid" "red")))
   ;; wall-collide? : -> Boolean
   ;; Does the Invader collide with a wall?
   (define (wall-collide)
