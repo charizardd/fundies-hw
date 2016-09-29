@@ -74,14 +74,14 @@
   ;; draw : -> Image
   ;; Draws the Invader.
   (define (draw)
-    (overlay/offset (circle 8 "solid" "red")
+    (overlay/offset (circle 8 "solid" "blue")
                     0 8
-                    (circle 40 20 "solid" "red")))
+                    (circle 40 20 "solid" "blue")))
   ;; wall-collide? : -> Boolean
   ;; Does the Invader collide with a wall?
   (define (wall-collide)
     (or (<= (- SCENE-DIM (send this x)) (/ (image-width (send this draw)) 2 ))
-        (<= (send this x) (/ (image-width (send this draw)) 2 ))))
+        (<= (send this x) (/ (image-width (send this draw)) 3 ))))
   ;; shot? : Bullet -> Boolean
   ;; Has the Invader been shot?
   (define (shot? bullet)
@@ -89,7 +89,7 @@
                 (sqr (- (send this y) (send bullet y))))) 10))
   ;; switch-dir : -> Invader
   (define (switch-dir)
-    (if (string=? (send this direction) "right")
+    (if (string=? (send this direction) "left")
         (new invader% (send this x) (send this y) "left")
         (new invader% (send this x) (send this y) "right")))
   )
